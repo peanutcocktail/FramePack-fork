@@ -30,7 +30,7 @@ from diffusers_helper.bucket_tools import find_nearest_bucket
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--share', action='store_true')
-parser.add_argument("--server", type=str, default='0.0.0.0')
+parser.add_argument("--server", type=str, default='127.0.0.1')
 parser.add_argument("--port", type=int, default=7860)
 args = parser.parse_args()
 
@@ -351,7 +351,7 @@ quick_prompts = [[x] for x in quick_prompts]
 
 
 css = make_progress_bar_css()
-block = gr.Blocks(css=css).queue()
+block = gr.Blocks(css=css, title="Frame Pack").queue()
 with block:
     gr.Markdown('# FramePack')
     with gr.Row():
